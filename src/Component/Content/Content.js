@@ -5,8 +5,8 @@ class Content extends Component {
         super(props);
 
         this.state ={
-            trangThai: 1
-
+            trangThai: 0,
+            value:"vuong cong"
         }
         
     }
@@ -18,7 +18,7 @@ class Content extends Component {
     renderForm = () => (
             <div className = "row">
                 <div className="form-group">
-                    <input type="text" name="ten" className="form-control"/>
+                    <input ref={(dulieu) => {this.trunggian=dulieu}} defaultValue={this.state.value} type="text" name="ten" className="form-control"/>
                     <div className="btn btn-block btn-danger" onClick ={()=> this.saveClick()}>Save</div>
                 </div>
             </div>
@@ -47,6 +47,8 @@ class Content extends Component {
     }
     saveClick = () => {
         this.setState({trangThai:0});
+        console.log(this.trunggian.value);
+        
     }
 
     render() {
